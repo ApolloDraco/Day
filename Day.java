@@ -10,45 +10,17 @@ public class Day {
 
         Scanner in = new Scanner(System.in);
 
-        System.out.printf("Enter an integer for todays day of the week (Sunday is 0, Monday is 1, . . . , and Saturday is 6): ");
-        int date = in.nextInt();
-        System.out.print("Enter the number of days after today for a future day : ");
-        int elapsed = in.nextInt();
+        String[] daysOfWeek = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
-        int future_date = (date + elapsed) % 7;
-        String day_of_week = "";
+        System.out.print("Enter an integer for today's day of the week (Sunday is 0, Monday is 1, . . . , and Saturday is 6): ");
+        int today = in.nextInt();
 
-        switch(date) {
-            case 0: day_of_week = "Sunday";
-                    break;
-            case 1: day_of_week = "Monday";
-                    break; 
-            case 2: day_of_week = "Tuesday";
-                    break;
-            case 3: day_of_week = "Wednesday";
-                    break;
-            case 4: day_of_week = "Thursday";
-                   break;
-            case 5: day_of_week = "Friday";
-                    break;
-            case 6: day_of_week = "Saturday";
-                    break;
-        }
+        System.out.print("Enter the number of days after today for a future day: ");
+        int future = in.nextInt();
 
-        if (future_date == 0) {
-            System.out.printf("Todays day is %s and the future day is Sunday", day_of_week);
-        } else if(future_date == 1){
-            System.out.printf("Todays day is %s and the future day is Monday", day_of_week);
-        } else if(future_date == 2){
-            System.out.printf("Todays day is %s and the future day is Tuesday", day_of_week);
-        } else if(future_date == 3){
-            System.out.printf("Todays day is %s and the future day is Wednesday", day_of_week);
-        } else if(future_date == 4){
-            System.out.printf("Todays day is %s and the future day is Thursday", day_of_week);
-        } else if(future_date == 5){
-            System.out.printf("Todays day is %s and the future day is Friday", day_of_week);
-        } else if(future_date == 6){
-            System.out.printf("Todays day is %s and the future day is Saturday", day_of_week);
-        }
+        int futureDay = (today + future) % 7;
+        String futureDayName = daysOfWeek[futureDay];
+
+        System.out.printf("Today is %s and the future day is %s.\n", daysOfWeek[today], futureDayName);
     }
 }
